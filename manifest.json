@@ -1,0 +1,20 @@
+{
+  "manifest_version": 2,
+  "name": "My Pinned Tabs",
+  "description": "Auto launches your favorites to pinned tabs.",
+  "version": "1.0",
+  "browser_action": {
+    "default_icon": "icon.png", 
+    "name": "Click to get URL"
+  },
+  "content_scripts": [
+    {
+      "matches": ["http://*/*"],
+      "js": ["page.js"]
+    }
+  ],
+  "background":{
+    "scripts":["background.js"]
+  },
+  "permissions":["tabs"] //Put All your URL here
+}
