@@ -1,17 +1,16 @@
 {
-  "name": "Keyboard Pin",
-  "version": "0.3",
-  "description": "Creates a keyboard shortcut (Alt + Shift + P) to toggle the pinned state of the currently selected tab",
-  "browser_action": { "default_icon": "icon.png" },
+  "name": "Ping My Favorite Tabs",
+  "description": "Pins and re-order a hard coded list of tabs",
+  "version": "2.0",
+  "permissions": [
+    "activeTab", "tabs"
+  ],
   "background": {
-    "persistent": false,
-    "scripts": ["background.js"]
+    "scripts": ["background.js"],
+    "persistent": false
   },
-  "commands": {
-    "toggle-pin": {
-      "suggested_key": { "default": "Alt+Shift+P" },
-      "description": "Toggle tab pin"
-    }
+  "browser_action": {
+    "default_title": "Open Jon's favorite tabs"
   },
   "manifest_version": 2
 }

@@ -1,14 +1,25 @@
-// Copyright (c) 2012 The Chromium Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style license that can be
-// found in the LICENSE file.
-
-chrome.commands.onCommand.addListener(function(command) {
-  if (command == "toggle-pin") {
-    // Get the currently selected tab
-    chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-      // Toggle the pinned status
-      var current = tabs[0]
-      chrome.tabs.update(current.id, {'pinned': !current.pinned});
-    });
-  }
+// Called when the user clicks on the browser action.
+chrome.browserAction.onClicked.addListener(function() {
+  chrome.tabs.query({pinned: true}, function(tabs) {
+	reOrderOrCreate("mail", "https://mail.google.com/a/carematics.com", 0, tabs);
+	reOrderOrCreate("calendar", "https://calendar.google.com/a/carematics.com", 1, tabs);
+	reOrderOrCreate("rememberthemilk", "http://www.rememberthemilk.com", 2, tabs);
+	reOrderOrCreate("atlassian.net/secure/Dashboard", "https://mergestone.atlassian.net/secure/Dashboard.jspa", 3, tabs);
+  });
 });
+
+
+/**
+ * If a tab is already in the list of pinned tabs change the position to pos
+ * and if it's not pinned created it with the provided url
+ */
+function reOrderOrCreate(keyword, urlString, pos, tabs) {
+	for (var i = 0, l = tabs.length; i !== l; i++) {
+  		var t = tabs[i];
+  		if (t.url.indexOf(keyword) >= 0) {
+  			chrome.tabs.move(t.id, {index:pos});
+  			return;
+  		} 
+  	}
+  	chrome.tabs.create({index:pos, url:urlString, pinned:true, active:false});
+}
