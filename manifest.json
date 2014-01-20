@@ -1,20 +1,17 @@
 {
-  "manifest_version": 2,
-  "name": "My Pinned Tabs",
-  "description": "Auto launches your favorites to pinned tabs.",
-  "version": "1.0",
-  "browser_action": {
-    "default_icon": "icon.png", 
-    "name": "Click to get URL"
+  "name": "Keyboard Pin",
+  "version": "0.3",
+  "description": "Creates a keyboard shortcut (Alt + Shift + P) to toggle the pinned state of the currently selected tab",
+  "browser_action": { "default_icon": "icon.png" },
+  "background": {
+    "persistent": false,
+    "scripts": ["background.js"]
   },
-  "content_scripts": [
-    {
-      "matches": ["http://*/*"],
-      "js": ["page.js"]
+  "commands": {
+    "toggle-pin": {
+      "suggested_key": { "default": "Alt+Shift+P" },
+      "description": "Toggle tab pin"
     }
-  ],
-  "background":{
-    "scripts":["background.js"]
   },
-  "permissions":["tabs"] //Put All your URL here
+  "manifest_version": 2
 }
