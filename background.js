@@ -4,7 +4,7 @@ chrome.browserAction.onClicked.addListener(function() {
 	reOrderOrCreate("mail", "https://mail.google.com/a/carematics.com", 0, tabs);
 	reOrderOrCreate("calendar", "https://calendar.google.com/a/carematics.com", 1, tabs);
 	reOrderOrCreate("rememberthemilk", "http://www.rememberthemilk.com", 2, tabs);
-	reOrderOrCreate("atlassian.net/secure/Dashboard", "https://mergestone.atlassian.net/secure/Dashboard.jspa", 3, tabs);
+	reOrderOrCreate("mergestone.atlassian.net", "https://mergestone.atlassian.net", 3, tabs);
   });
 });
 
