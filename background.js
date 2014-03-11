@@ -5,6 +5,8 @@ chrome.browserAction.onClicked.addListener(function() {
 	reOrderOrCreate("calendar", "https://calendar.google.com/a/carematics.com", 1, tabs);
 	reOrderOrCreate("rememberthemilk", "http://www.rememberthemilk.com", 2, tabs);
 	reOrderOrCreate("mergestone.atlassian.net", "https://mergestone.atlassian.net", 3, tabs);
+  reOrderOrCreate("crm.zoho.com/crm", "https://www.zoho.com/crm/lp/login.html", 4, tabs);
+
   });
 });
 
